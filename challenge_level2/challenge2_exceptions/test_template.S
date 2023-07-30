@@ -319,24 +319,27 @@ add x0,x0,x0
 func1:
 add x0,x0,x0
   ret
-
+  
   .macro ecause00_00000
   # stack push
-  addi sp, sp, -2*REGBYTES
-  SREG a1,  1*REGBYTES(sp)
-  SREG x6,  2*REGBYTES(sp)
+  addi sp, sp, -3*REGBYTES
+  SREG a1, 1*REGBYTES(sp)
+  SREG x15, 2*REGBYTES(sp)
+  SREG x10, 3*REGBYTES(sp)
     
   # exception
-  la x6, 2f
+  la x15, 2f
   la a1, 1f
-    1:
-  jr 2(x6)
-    2: 
+  1:
+  jalr x10, 2(x15)
+  2:
   nop
   nop
   # stack pop
   LREG a1, 1*REGBYTES(sp)
-  LREG x6, 2*REGBYTES(sp)
-  addi sp, sp, 1*REGBYTES
+  LREG x15, 2*REGBYTES(sp)
+  LREG x10, 3*REGBYTES(sp)
+  addi sp, sp, 3*REGBYTES
+
   .endm
   
