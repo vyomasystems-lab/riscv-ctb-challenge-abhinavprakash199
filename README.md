@@ -18,6 +18,7 @@ This repository contains the whole summary of hands on done by Abhinav Prakash (
 ### Correcting the Bug
 - To correct the bug, `and` is an R-Format ISA, so we replaced z4 with any defined registers in RV32I, like t0. So final instruction of line 15855 in `test.S` file in `and s7,ra,t0`.
 - Whereas in the next bug, `addi` is I-Format ISA, hence it performs addition with immediate data and s0 is not immediate data, so we replace s0 with any immediate data like 2. So final instruction of line no 25584 in `test.S` file in `addi s5,t1,2`.
+  
 #### Defined Registers in RV32I
 ![Screenshot (2650)](https://github.com/vyomasystems-lab/riscv-ctb-challenge-abhinavprakash199/assets/120498080/e58f2daf-546d-431e-ae75-9275cc225138)
 #### R-Format ISA
