@@ -4,6 +4,12 @@ This repository contains the whole summary of hands on done by Abhinav Prakash (
 ![UPTICKPRO](https://github.com/vyomasystems-lab/riscv-ctb-challenge-abhinavprakash199/assets/120498080/b6ff3b02-fae6-4e9c-9752-b9106a441c1d)
 
 # Table of Contents
+  * [Level-1](#Level-1)
+  * [Level-2](# Level-2)
+  * [Refrences](#Refrences)
+  
+
+
 
 # Level-1
 ## Challenge-1 logical
@@ -39,12 +45,13 @@ This repository contains the whole summary of hands on done by Abhinav Prakash (
 - To find the bug we ran `make` command and found the loop was running infinite times, so we came out of the loop using `Ctrl+c` and `q` and tried to find the bug.
   
 ![Capture](https://github.com/vyomasystems-lab/riscv-ctb-challenge-abhinavprakash199/assets/120498080/e009dffd-91cf-4a1e-b913-d9cfc5a6c5b6)
+
+### Correcting the Bug
 - We made the following changes in the code to run the loop properly.
 
 ![Screenshot (2660)](https://github.com/vyomasystems-lab/riscv-ctb-challenge-abhinavprakash199/assets/120498080/b376fa14-62cd-47be-b3fb-b51293ec1422)
 
-### Correcting the Bug
-- Finally after running `make` the required files where generated.
+- Finally, after running `make`, the required files were generated.
   
 ![Screenshot (2653)](https://github.com/vyomasystems-lab/riscv-ctb-challenge-abhinavprakash199/assets/120498080/11fe0c21-7235-446c-a216-2212d3e19664)
 
@@ -56,14 +63,35 @@ This repository contains the whole summary of hands on done by Abhinav Prakash (
 # Level-2
 ## Challenge-1 instructions
 ###  Identifying the Bug 
+- To find the bug, we ran the `make` command and found some errors.
+![Screenshot (2663)](https://github.com/vyomasystems-lab/riscv-ctb-challenge-abhinavprakash199/assets/120498080/3687b9d1-fd20-4797-a61c-c86bbe04555b)
+
 
 ### Correcting the Bug
+- To find the bug, we went though the `rv32i.yaml` file and found an ISA-instruction-distribution of 64 bits which was initialized to 10 but was working in rv32i, so we changed it to 0.
+  
+![Screenshot (2665)](https://github.com/vyomasystems-lab/riscv-ctb-challenge-abhinavprakash199/assets/120498080/ad9a0ad9-c630-477c-9f5b-96b47b1a3aeb)
+- We changed `rel_rv64m: 10` to `rel_rv64m: 0` to correct the bug.
+- Finally, after running `make` the required files were generated.
 
+![Screenshot (2661)](https://github.com/vyomasystems-lab/riscv-ctb-challenge-abhinavprakash199/assets/120498080/41647b23-38c2-45f4-afbb-b102d2af0908)
 
 ## Challenge-2 exceptions
 ###  Identifying the Bug 
+- To find the bug, we ran the `make` command and found it generated only one illegal exception.
+
+![Screenshot (2668)](https://github.com/vyomasystems-lab/riscv-ctb-challenge-abhinavprakash199/assets/120498080/e5aa83af-18cf-483a-b626-e3a92d36c7fe)
 
 ### Correcting the Bug
+- Here, we need to generate 10 illegal exceptions, so we made some changes in the `rv32i.yalm` file.
+- Changed `total_instructions: 1000` to `total_instructions: 200`, `rel_rv32i.data: 10` to `rel_rv32i.data: 0` ,  `rel_rv32m: 0` to `rel_rv32m: 1` and `ecause00: 0` to `ecause00: 1`.
+
+
+- Finally, after running the `make` command to generate all illegal exceptions, which are saved in generated `exception.log` file.
+![Screenshot (2667)](https://github.com/vyomasystems-lab/riscv-ctb-challenge-abhinavprakash199/assets/120498080/01e4f0da-24bf-4877-9a5b-daaaa94f77fa)
+
+#### Generated illegal exception.
+![Screenshot (2672)](https://github.com/vyomasystems-lab/riscv-ctb-challenge-abhinavprakash199/assets/120498080/2b9b3cfe-608e-4033-b5ae-a0de2cd4c0da)
 
 
 
@@ -71,6 +99,7 @@ This repository contains the whole summary of hands on done by Abhinav Prakash (
 - [Automated Assembly Program Generator](https://gitlab.com/shaktiproject/tools/aapg)
 - [Wiki AAPG](https://gitlab.com/shaktiproject/tools/aapg/-/wikis/Wiki-AAPG-%5B2.2.2%5D)
 
+# Refrences 
 
 
 
