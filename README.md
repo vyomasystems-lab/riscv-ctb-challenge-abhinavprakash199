@@ -89,7 +89,7 @@ This repository contains the whole summary of hands on done by Abhinav Prakash (
 ![Screenshot (2668)](https://github.com/vyomasystems-lab/riscv-ctb-challenge-abhinavprakash199/assets/120498080/e5aa83af-18cf-483a-b626-e3a92d36c7fe)
 
 ### Correcting the Bug
-- Here, we need to generate 10 illegal exceptions, so we made some changes in the `rv32i.yalm` file.
+- Here, we need to generate 10 illegal exceptions, so we made some changes in the `rv32i.yaml` file.
 - Changed `total_instructions: 1000` to `total_instructions: 200`, `rel_rv32i.data: 10` to `rel_rv32i.data: 0` ,  `rel_rv32m: 0` to `rel_rv32m: 1` and `ecause00: 0` to `ecause00: 1`.
 
 
