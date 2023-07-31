@@ -8,19 +8,24 @@ This repository contains the whole summary of hands on done by Abhinav Prakash (
   * [Level-2](#Level-2)
   * [Refrences](#Refrences)
   
-
-
-
 # Level-1
 ## Challenge-1 logical
-###  Identifying the Bug 
+### Identifying the Bug 
 - To find the bug, we ran the `make` command and found the bug in 2 bugs.
-- 
+  
 ![Screenshot (2635)](https://github.com/vyomasystems-lab/riscv-ctb-challenge-abhinavprakash199/assets/120498080/70a74152-9f35-4376-80f1-f636c3c9f650)
 
 ### Correcting the Bug
-- To correct the bug, we replaced z4 with any of the defined registers in RV32I, like t0. So final instruction of line no 15855 in `test.S` file in `and s7,ra,t0`.
-- Whereas in the next bug, `addi` performs addition with immediate data and s0 is not immediate data, so we replace s0 with any immediate data like 2. So final instruction of line no 25584 in `test.S` file in `addi s5,t1,2`.
+- To correct the bug, `and` is an R-Format ISA, so we replaced z4 with any defined registers in RV32I, like t0. So final instruction of line 15855 in `test.S` file in `and s7,ra,t0`.
+- Whereas in the next bug, `addi` is I-Format ISA, hence it performs addition with immediate data and s0 is not immediate data, so we replace s0 with any immediate data like 2. So final instruction of line no 25584 in `test.S` file in `addi s5,t1,2`.
+#### Defined Registers in RV32I
+![Screenshot (2650)](https://github.com/vyomasystems-lab/riscv-ctb-challenge-abhinavprakash199/assets/120498080/e58f2daf-546d-431e-ae75-9275cc225138)
+#### R-Format ISA
+![Screenshot (2649)](https://github.com/vyomasystems-lab/riscv-ctb-challenge-abhinavprakash199/assets/120498080/f6a09a6e-47f2-4011-b76f-773572980014)
+#### I-Format ISA
+![Screenshot (2651)](https://github.com/vyomasystems-lab/riscv-ctb-challenge-abhinavprakash199/assets/120498080/768de351-fa3d-4a74-8b05-8c5630d1c0a3)
+
+
 - Then we run the make command, which generates `test.disass`,`test.elf` and `test_spike.dump` files.
   
 ![Screenshot (2642)](https://github.com/vyomasystems-lab/riscv-ctb-challenge-abhinavprakash199/assets/120498080/d8984cea-ac4d-453d-bae4-8e6355040996)
@@ -100,6 +105,10 @@ This repository contains the whole summary of hands on done by Abhinav Prakash (
 - [Wiki AAPG](https://gitlab.com/shaktiproject/tools/aapg/-/wikis/Wiki-AAPG-%5B2.2.2%5D)
 
 # Refrences 
+- [RISC-V Intro](https://www.youtube.com/watch?v=cLE2UppGZ1A)
+- [RISC-V Base RV32I](https://www.youtube.com/watch?v=bp-Y7nSJa8o)
+- [ Processor Verification](https://www.youtube.com/watch?v=aS3TwoqUWk0)
+- [RISCV CTB Challenges Vyoma](https://www.youtube.com/watch?v=XSPxKUGsnkY)
 
 
 
